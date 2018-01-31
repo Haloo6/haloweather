@@ -5,6 +5,6 @@
     <list>
         <mapping class = "com.haloweather.android.db.Province"></mapping>
         <mapping class = "com.haloweather.android.db.City"></mapping>
-        <mapping class = "com.haloweather.android.db.Country"></mapping>
+        <mapping class = "com.haloweather.android.db.County"></mapping>
     </list>
 </litepal>
