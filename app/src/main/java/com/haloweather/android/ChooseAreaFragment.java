@@ -1,6 +1,7 @@
 package com.haloweather.android;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -86,6 +87,14 @@ public class ChooseAreaFragment extends Fragment { //遍历省市县数据的碎
                 }else if (currentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(position);
                     queryCounties();
+                }else if (currentLevel == LEVEL_COUNTY) {
+                    //若为县级，则启动WeatherActivity
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id", weatherId); //把选中县的天气id传递过去
+                    startActivity(intent);
+                    getActivity().finish();
+
                 }
             }
         });
